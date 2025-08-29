@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;        
+    background-color: #062475;        
+  }
+
+  header {
+    background-color: rgb(252, 251, 242);
+    padding: 20px; 
+  }
+
+  header > h1 {
+    text-align: center;
+  }
+
+  img {
+    user-select: none;        /* cegah seleksi teks/gambar */
+    -webkit-user-drag: none;  /* cegah drag di browser berbasis WebKit (Chrome, Safari) */
+    pointer-events: none; /* biar kliknya ke bubble, bukan ke gambar */
+  }
+
+  .score-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    padding: 1rem;
+    /* border: 3px solid white; */
+    border-radius: 10px;
+    /* box-shadow: 0 0 20px rgba(255, 0, 0, 0.5); */
+    width: 100%;
+    background-color: cornflowerblue;
+    position: relative;
+    max-width: fit-content;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background-image: linear-gradient(90deg, cornflowerblue);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25),
+                inset 4px 4px 1px rgba(255, 255, 255, 0.25),
+                inset -4px -4px 1px rgba(0, 0, 0, 0.25);
+
+  }
+
+  .score-header {
+    background-color: #c9184a;
+    position: absolute;
+    top: -20px;
+    padding: 10px 40px;
+    border-radius: 10px;
+    background-image: linear-gradient(90deg, #c9184a);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25),
+                inset 4px 4px 1px rgba(255, 255, 255, 0.25),
+                inset -4px -4px 1px rgba(0, 0, 0, 0.25);
+  }
+
+  .score-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding-top: 20px;
+
+  }
+
+  .score {
+    width: 120px;
+    /* margin: 10px; */
+    /* background-color: rgb(109, 109, 109); */
+  }
+
+  .score-title {
+    border-radius: 10px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-size: 1rem;
+    background-color: darkslateblue;
+    text-transform: uppercase;
+    background-image: linear-gradient(90deg, darkslateblue);
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25),
+                inset 3px 3px 1px rgba(255, 255, 255, 0.25),
+                inset -3px -3px 1px rgba(0, 0, 0, 0.25);
+    /* box-shadow: 3px 3px 3px rgba(66, 66, 66, 0.5); */
+  }
+
+  .score .score-display{
+    border-radius: 10px;
+    /* background-color: #252833; */
+    padding: 30px;
+    width: 100;
+    font-size: 45px;
+    background: radial-gradient(circle, #3b3d46, #252833);
+    box-shadow: 0 5px 20px 5px #130f0a inset,
+                5px 0 10px -4px #130f0a inset,
+                -0.5px 0 3px 1px white inset;
+  }
+
+  .score-display{
+    text-align: center;
+    font-size: 45px;
+  }
+
+  .score-colon {
+    font-size: 45px;
+  }
+
+  .game-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto;
+    padding: 1rem;
+    max-width: 750px;
+    gap: 50px;
+    background-color: #252833;
+    border-radius: 10px;
+    box-shadow: inset 5px 7px 30px rgba(0, 0, 0, 0.5);
+    /* background: linear-gradient(90deg, rgb(134, 0, 0), rgb(0, 0, 122)); */
+  }
+
+  #versus-text {
+    color: silver;
+  }
+
+  #user-choice {
+    transform: rotate(90deg);
+    position: relative;
+  }
+
+  .user-play-anim {
+    animation: 
+          u-play-anim
+          0.1s ease alternate infinite;
+  }
+
+  #comp-choice {
+    transform: rotate(90deg) rotateX(180deg);
+    position: relative;
+  }
+
+  .cpu-play-anim {
+    animation: 
+          c-play-anim
+          0.1s ease alternate infinite;
+  }
+
+  #info {
+    font-size: 30px;
+    text-align: center;
+    /* font-weight: center; */
+    color: aquamarine;
+  }
+
+  .choice {
+    width: 130px;
+    height: 130px;
+    padding: 20px;
+    margin: 15px;
+    background: radial-gradient(circle at 30% 30%, #ff4f70, #c9184a);
+    border-radius: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25),
+                inset -4px -4px 8px rgba(255, 255, 255, 0.2),
+                inset 4px 4px 8px rgba(0, 0, 0, 0.3);
+  
+    transition: all 0.2s ease;
+    transform: scale(1);
+  }
+  
+  /* Efek saat hover (bubble membesar + warna berubah) */
+  .choice:hover {
+    transform: scale(1.15);
+    cursor: pointer;
+    background: radial-gradient(circle at 30% 30%, #ff4f70, #c9184a);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.35),
+                inset -3px -3px 6px rgba(255, 255, 255, 0.3),
+                inset 3px 3px 6px rgba(0, 0, 0, 0.25);
+  }
+  
+  /* Efek saat ditekan (bubble mengecil & warna hijau) */
+  .choice:active {
+    transform: scale(0.95);
+    background: radial-gradient(circle at 30% 30%, #ffb703, #fb8500);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4),
+                inset 2px 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  .choice.disabled {
+    filter: brightness(0.5);   /* bikin lebih gelap */
+    pointer-events: none;      /* pastikan tidak bisa diklik */
+    opacity: 0.7;              /* tambahin efek redup */
+    transition: all 0.3s ease; /* biar smooth */
+  }
+  
+  
+  /* Styling untuk gambar biar ikut halus */
+  .choice img {
+    transition: transform 0.2s ease;
+  }
+  
+  .choice:hover img {
+    transform: scale(1.1);
+  }
+  
+  
+  #choices {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  @keyframes u-play-anim {
+    from {
+      bottom: 5px;
+      rotate: -5deg;
+    }
+    to {
+      bottom: -5px;
+      rotate: 5deg;
+    }    
+  }
+
+  @keyframes c-play-anim {
+    from {
+      bottom: 5px;
+      rotate: 5deg;
+    }
+    to {
+      bottom: -5px;
+      rotate: -5deg;
+    }    
+  }

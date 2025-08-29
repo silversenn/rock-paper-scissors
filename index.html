@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <header>
+        <h1>Rock Paper Scissor</h1>
+    </header>
+
+
+    <div class="score-board">
+        <div class="score-header">
+            SCORE
+        </div>
+        <div class="score-body">
+            <div class="user-score score">
+                <div class="score-title">User</div>
+                <div class="score-display">
+                    0
+                </div>
+            </div>
+            <div class="score-colon">
+                -
+            </div>
+            <d.iv class="comp-score score">
+                <div class="score-title">Computer</div>
+                <div class="score-display">
+                    0
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p id="info"></p>
+
+    <section class="game-display">
+        <img id="user-choice" height="250px" src="assets/rock.png" alt="✊">
+        <h1 id="versus-text">VS</h1>
+        <img id="comp-choice" height="250px" src="assets/rock.png" alt="✊">
+    </section>
+
+
+
+    <div id="choices">
+        <div class="choice" onclick="playerChoice('rock')">
+            <img src="assets/rock.png" height="100" alt="✊">
+        </div>
+        <div class="choice" onclick="playerChoice('paper')">
+            <img src="assets/paper.png" height="100" alt="✋">
+        </div>
+        <div class="choice" onclick="playerChoice('scissor')">
+            <img src="assets/scissor.png" height="100" alt="✌">
+        </div>
+
+        <!-- <img class="choice" onclick="playerChoice('rock')" src="assets/rock.png" alt="✊">
+        <img class="choice" onclick="playerChoice('paper')" src="assets/paper.png" alt="✋">
+        <img class="choice" onclick="playerChoice('scissor')" src="assets/scissor.png" alt="✌">  --> 
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
